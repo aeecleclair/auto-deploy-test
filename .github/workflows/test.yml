@@ -1,0 +1,93 @@
+# name: Test
+# # https://docs.github.com/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python?langId=py#requirements-file
+
+# on:
+#   pull_request:
+#     types: [opened, edited, ready_for_review, synchronize]
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   test:
+#     runs-on: ubuntu-latest
+#     timeout-minutes: 10
+
+#     # Add a Redis container
+#     # https://docs.github.com/en/actions/using-containerized-services/creating-redis-service-containers#running-jobs-directly-on-the-runner-machine
+#     # Service containers to run with `runner-job`
+#     services:
+#       # Label used to access the service container
+#       redis:
+#         # Docker Hub image
+#         image: redis
+#         # Set health checks to wait until redis has started
+#         options: >-
+#           --health-cmd "redis-cli ping"
+#           --health-interval 10s
+#           --health-timeout 5s
+#           --health-retries 5
+#         ports:
+#           # Maps port 6379 on service container to the host
+#           - 6379:6379
+#       postgres:
+#         # Docker Hub image
+#         image: postgres
+#         # Provide the password for postgres
+#         env:
+#           POSTGRES_PASSWORD: "somerealpassword"
+#           POSTGRES_USER: "hyperion"
+#           POSTGRES_DB: "hyperion"
+#         # Set health checks to wait until postgres has started
+#         options: >-
+#           --health-cmd pg_isready
+#           --health-interval 10s
+#           --health-timeout 5s
+#           --health-retries 5
+#         ports:
+#           # Maps tcp port 5432 on service container to the host
+#           - 5432:5432
+
+#     steps:
+#       - name: Check out the code
+#         uses: actions/checkout@v4
+
+#       # Setup Python (faster than using Python container)
+#       - name: Setup Python
+#         uses: actions/setup-python@v5
+#         id: setup-python
+#         with:
+#           python-version: "3.11"
+
+#       - name: Cache uv folder
+#         id: cache-uv
+#         uses: actions/cache@v4
+#         with:
+#           path: ~/.cache/uv
+#           key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-uv-${{ hashFiles('requirements-common.txt', 'requirements-dev.txt') }}
+
+#       - name: Install uv
+#         run: curl -LsSf https://astral.sh/uv/install.sh | sh
+
+#       - name: Install dependencies
+#         run: uv pip install --system -r requirements-dev.txt
+
+#       - name: Cache .pytest_cache folder
+#         id: pytest_cache
+#         uses: actions/cache@v4
+#         with:
+#           path: .pytest_cache
+#           key: pytest_cache-${{ github.head_ref }}
+      
+#       - name: Run migration unit tests with SQLite
+#         run: python -m pytest tests/test_migrations.py
+
+#       - name: Run unit tests with Postgresql
+#         run: python -m pytest --cov
+#         env:
+#           SQLITE_DB: ""
+
+#       - name: Upload coverage reports to Codecov
+#         uses: codecov/codecov-action@v4
+#         env:
+#           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
