@@ -1,0 +1,30 @@
+# Cache folders
+__pycache__
+.mypy_cache
+.pytest_cache
+.ruff_cache
+
+# Databases and data
+sql_app.db
+test.db
+data/
+
+# Dotenv file
+.env
+
+# Firebase secrets
+firebase.json
+
+# macOS
+.DS_Store
+
+# Virtual environment
+.venv
+.python-version
+
+# Logs
+logs/
+
+# Pytest-cov
+.coverage
+/scripts
