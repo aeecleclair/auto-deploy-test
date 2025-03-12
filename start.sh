@@ -8,4 +8,4 @@ export HYPERION_INIT_DB="False"
 # python3 init.py
 
 echo "Starting FastAPI server..."
-exec fastapi run app/main.py --workers ${NB_WORKERS:-1}
+exec fastapi run app/entrypoints/fastapi_app.py --workers ${NB_WORKERS:-1}
