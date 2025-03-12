@@ -38,5 +38,5 @@ services:
     volumes:
       - ./logs:/app/logs:Z
       - ./data:/app/data:Z
-      - ./.env:/app/.env:Z
+      - ./.env.deploy:/app/.env:Z
       - ./firebase.json:/app/firebase.json:Z
