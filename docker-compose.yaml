@@ -25,7 +25,7 @@ services:
       - REDIS_PASSWORD=${REDIS_PASSWORD}
 
   hyperion-app:
-    image: hyperion-app
+    build: .
     container_name: hyperion-app
     restart: unless-stopped
     depends_on:
