@@ -12,7 +12,6 @@ RUN uv pip install --system --no-cache-dir -r requirements-prod.txt
 
 COPY init.py .
 COPY alembic.ini .
-COPY migrations migrations/
 COPY assets assets/
 COPY app app/
 
