@@ -1,4 +1,4 @@
-### Setup venv test 2
+### Setup venv
 
 `python -m venv .venv`
 
