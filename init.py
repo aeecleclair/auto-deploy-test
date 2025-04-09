@@ -1,4 +1,3 @@
-#Test
 import logging
 
 from app.app import init_db
