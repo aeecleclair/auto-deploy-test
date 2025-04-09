@@ -6,7 +6,7 @@ from app.core.log import LogConfig
 
 # We call `construct_prod_settings()` and not the dependency `get_settings()` because:
 # - we know we want to use the production settings
-# - we will edit environment variables to avoid initializing the database and `get_settings()` is a cached function
+# - we will edit environment variables to avoid initializing the database and `get_settings()` is a cached function ff
 settings = construct_prod_settings()
 
 # Initialize loggers
