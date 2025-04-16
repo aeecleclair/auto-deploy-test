@@ -1,4 +1,4 @@
-### Setup venv 
+### Setup venv bit
 
 `python -m venv .venv`
 
