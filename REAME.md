@@ -1,4 +1,4 @@
-### Setup venv bep
+### Setup venv
 
 `python -m venv .venv`
 
