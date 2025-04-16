@@ -1,6 +1,6 @@
 name: Build and Publish Hyperion Docker Images
 on:
-  workflow_dispatch:
+  workflow_dispatch: {}
    push:
      tags:
        - 'v*.*.*'
