@@ -2,8 +2,6 @@ name: Lint and format
 #https://docs.github.com/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python?langId=py#requirements-file
 
 on:
- branches:
-     - main
   pull_request:
     types: [opened, edited, ready_for_review, synchronize]
 
