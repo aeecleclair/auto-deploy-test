@@ -18,6 +18,6 @@ COPY app app/
 COPY start.sh .
 RUN chmod +x start.sh
 
-EXPOSE 8000
+EXPOSE 80
 
 ENTRYPOINT ["./start.sh"]
