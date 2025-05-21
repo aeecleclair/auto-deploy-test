@@ -3,7 +3,7 @@ name: Deploy to Coolify
 on:
   push:
     branches:
-      - test  # Change this to your target branch
+      - main  # Change this to your target branch
 
 jobs:
   deploy:
