@@ -3,7 +3,7 @@ name: Deploy to Coolify
 on:
   push:
     branches:
-      - main  # Change this to your target branch
+      - main  # Or your target branch
 
 jobs:
   deploy:
@@ -15,4 +15,4 @@ jobs:
           curl -X POST "https://coolify.dev.eclair.ec-lyon.fr/api/v1/deploy?uuid=skoskgg0og8sss0880oow48c&force=false" \
             -H "Authorization: Bearer ${{ secrets.COOLIFY_API_TOKEN }}" \
             -H "Content-Type: application/json" \
-            -d '{}
+            -d '{}'
