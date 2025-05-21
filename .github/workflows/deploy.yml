@@ -1,19 +1,18 @@
-name: Deploy to Coolify
+name: Deploy with Coolify
 
 on:
   push:
     branches:
-      - main  # Or your target branch
+      - main  # Déclenchement uniquement sur la branche "test"
 
 jobs:
-  if: contains(github.event.head_commit.message, '[deploy]')
-    deploy:
-      runs-on: ubuntu-latest
-  
-      steps:
-        - name: Trigger Coolify Deploy
-          run: |
-            curl -X POST "https://coolify.dev.eclair.ec-lyon.fr/api/v1/deploy?uuid=skoskgg0og8sss0880oow48c&force=false" \
-              -H "Authorization: Bearer ${{ secrets.COOLIFY_API_TOKEN }}" \
-              -H "Content-Type: application/json" \
-              -d '{}'
+  deploy:
+    if: contains(github.event.head_commit.message, '[deploy]')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Coolify deploy
+        run: |
+          curl -X POST "https://coolify.dev.eclair.ec-lyon.fr/api/v1/deploy?uuid=skoskgg0og8sss0880oow48c&force=false" \
+          -H "Authorization: Bearer ${{ secrets.COOLIFY_API_TOKEN }}" \
+          -H "Content-Type: application/json"
