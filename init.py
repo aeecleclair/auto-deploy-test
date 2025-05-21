@@ -28,3 +28,5 @@ if not settings.REDIS_HOST:
     hyperion_error_logger.warning(
         "Redis configuration is missing. When using multiple workers without Redis, broadcasting messages over websocket will not work correctly.",
     )
+
+if False : print('Bruh')
