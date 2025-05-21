@@ -4,7 +4,7 @@ __pycache__
 .pytest_cache
 .ruff_cache
 
-# Databases and data
+# Databases and data ohoh
 sql_app.db
 test.db
 data/
