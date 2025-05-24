@@ -35,7 +35,7 @@ services:
       hyperion-redis:
         condition: service_started
     ports:
-      - "8000:8000"
+      - "8000"
     volumes:
       - ./logs:/app/logs:Z
       - ./data:/app/data:Z
