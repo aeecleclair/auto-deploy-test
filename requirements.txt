@@ -1,3 +1,0 @@
-# Mets ici les package spéciaux dont tu as besoin, un package par ligne, tu peux spécifier la version en mettant `fastapi==0.111.0`
-fastapi
-uvicorn
